@@ -1,6 +1,7 @@
 version: "3"
 services:
   web:
+    build: .
     # replace username/repo:tag with your name and image details
     image: gitt0h0/radce-started:part2
     deploy:
@@ -13,6 +14,8 @@ services:
         condition: on-failure
     ports:
       - "4000:8080"
+    redis:
+      image: "redis:slim"
     networks:
       - webnet
 networks:
